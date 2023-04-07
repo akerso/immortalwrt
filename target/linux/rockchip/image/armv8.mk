@@ -78,7 +78,7 @@ TARGET_DEVICES += friendlyarm_nanopi-r5s
 define Device/hinlink_common
   DEVICE_VENDOR := HINLINK
   UBOOT_DEVICE_NAME := opc-h68k-rk3568
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script nanopi-r5s | pine64-img | gzip | append-metadata
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
   DEVICE_PACKAGES := kmod-ata-ahci-platform kmod-mt7921e kmod-r8125 kmod-usb-serial-cp210x wpad-openssl
 endef
 
