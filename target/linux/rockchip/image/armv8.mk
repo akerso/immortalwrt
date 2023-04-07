@@ -75,6 +75,35 @@ define Device/friendlyarm_nanopi-r5s
 endef
 TARGET_DEVICES += friendlyarm_nanopi-r5s
 
+define Device/hinlink_common
+  DEVICE_VENDOR := HINLINK
+  UBOOT_DEVICE_NAME := opc-h68k-rk3568
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script nanopi-r5s | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-ata-ahci-platform kmod-mt7921e kmod-r8125 kmod-usb-serial-cp210x wpad-openssl
+endef
+
+define Device/hinlink_opc-h66k
+$(call Device/hinlink_common)
+  DEVICE_MODEL := OPC-H66K
+  SOC := rk3568
+endef
+TARGET_DEVICES += hinlink_opc-h66k
+
+define Device/hinlink_opc-h68k
+$(call Device/hinlink_common)
+  DEVICE_MODEL := OPC-H68K
+  SOC := rk3568
+endef
+TARGET_DEVICES += hinlink_opc-h68k
+
+define Device/hinlink_opc-h69k
+$(call Device/hinlink_common)
+  DEVICE_MODEL := OPC-H69K
+  SOC := rk3568
+  DEVICE_PACKAGES += kmod-usb-serial-option uqmi
+endef
+TARGET_DEVICES += hinlink_opc-h69k
+
 define Device/lunzn_fastrhino-r66s
   DEVICE_VENDOR := Lunzn
   DEVICE_MODEL := FastRhino R66S

@@ -108,6 +108,17 @@ endef
 define U-Boot/Default/rk3568
   BUILD_SUBTARGET:=armv8
   DEPENDS:=+PACKAGE_u-boot-$(1):trusted-firmware-a-rk3568
+ $(U-Boot/Default/rk3568)
+  ATF:=$(RK3568_ATF)
+  DDR:=$(RK3568_DDR)
+endef
+
+define U-Boot/opc-h68k-rk3568
+  BUILD_SUBTARGET:=armv8
+  NAME:=HINLINK OPC-H68K
+  BUILD_DEVICES:= \
+    hinlink_opc-h68k-d
+  DEPENDS:=+PACKAGE_u-boot-opc-h68k-rk3568:trusted-firmware-a-rk3568
   ATF:=$(RK3568_ATF)
   DDR:=$(RK3568_DDR)
 endef
@@ -150,6 +161,7 @@ UBOOT_TARGETS := \
   orangepi-r1-plus-rk3328 \
   orangepi-r1-plus-lts-rk3328 \
   roc-cc-rk3328 \
+  opc-h68k-rk3568 \
   fastrhino-r66s-rk3568 \
   fastrhino-r68s-rk3568 \
   nanopi-r5c-rk3568 \
